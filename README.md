@@ -16,6 +16,7 @@ A small Go utility (with an optional HTTP server) to decode URLs rewritten by Pr
 ## Requirements
 
 - Go 1.21+
+- `github.com/akamensky/argparse`
 - (Optional) Any modern web browser for server mode
 
 ---
