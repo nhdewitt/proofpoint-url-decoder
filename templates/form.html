@@ -1,0 +1,21 @@
+{{define "form"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Proofpoint URL Decoder</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+	<div class="card container">
+		<h1 class="heading">Proofpoint URL Decoder</h1>
+		<form method="POST" action="/decode" class="decode-form">
+			<label for="input" class="label">Enter one or more encoded URLs (one per line):</label>
+			<textarea id="input" name="input" class="textarea" placeholder="Paste encoded URLs here..."></textarea>
+			<button type="submit" class="btn btn-secondary">Decode</button>
+		</form>
+	</div>
+</body>
+</html>
+{{end}}
