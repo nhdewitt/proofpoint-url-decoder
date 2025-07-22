@@ -2,28 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>{{if gt (len .) 1}}Decoded Results{{else}}Decoded Result{{end}}</title>
-	<link rel="stylesheet" href="/static/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{if gt (len .) 1}}Decoded Results{{else}}Decoded Result{{end}}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-	<div class="container results-container">
-		<h1 class="heading">{{if gt (len .) 1}}Decoded Results{{else}}Decoded Result{{end}}</h1>
-		<ul class="results-list">
-			{{range .}}
-			<li class="result-item">
-				<div class="input-url">{{.Input}}</div>
-				{{if .Err}}
-					<div class="error">error: {{.Err}}</div>
-				{{else}}
-					<pre class="output">{{.Output}}</pre>
-				{{end}}
-			</li>
-			{{end}}
-		</ul>
-		<a href="/" class="btn btn-secondary">Decode more URLs</a>
-	</div>
+  <!-- Dark Mode Toggle -->
+  <div class="theme-switcher">
+    <label>
+      <input type="checkbox" id="themeToggle"> Dark Mode
+    </label>
+  </div>
+
+  <div class="container results-container">
+    <h1 class="heading">{{if gt (len .) 1}}Decoded Results{{else}}Decoded Result{{end}}</h1>
+    <ul class="results-list">
+      {{range .}}
+      <li class="result-item">
+        <div class="input-url">{{.Input}}</div>
+        {{if .Err}}
+          <div class="error">error: {{.Err}}</div>
+        {{else}}
+          <pre class="output">{{.Output}}</pre>
+        {{end}}
+      </li>
+      {{end}}
+    </ul>
+    <a href="/" class="btn btn-secondary">Decode more URLs</a>
+  </div>
+  <!-- Tooltip element -->
+  <div id="copyTooltip"></div>
+  <script src="/static/js/json-api-request.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/clipboard.js"></script>
 </body>
 </html>
 {{end}}

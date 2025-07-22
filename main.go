@@ -7,10 +7,7 @@ import (
 	"regexp"
 
 	"github.com/akamensky/argparse"
-)
-
-const (
-	port = "8089"
+	"github.com/nhdewitt/proofpoint-url-decoder/internal/config"
 )
 
 func main() {
@@ -45,7 +42,11 @@ func main() {
 	}
 
 	if *serverMode {
-		runServer(&udd)
+		c, err := config.LoadConfig("config.json")
+		if err != nil {
+			fmt.Errorf("error opening config file: %w", err)
+		}
+		runServer(&udd, c)
 		return
 	}
 
