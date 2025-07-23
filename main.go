@@ -12,7 +12,7 @@ import (
 
 func main() {
 	udd := urlDefenseDecoder{
-		udPattern:      regexp.MustCompile(`https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),
+		udPattern:      regexp.MustCompile(`^https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),
 		v1Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&k=`),
 		v2Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&[dc]=`),
 		v3Pattern:      regexp.MustCompile(`v3/__(?P<url>.+?)__;(?P<enc_bytes>.*?)!`),
@@ -44,7 +44,9 @@ func main() {
 	if *serverMode {
 		c, err := config.LoadConfig("config.json")
 		if err != nil {
-			fmt.Errorf("error opening config file: %w", err)
+			c = config.Config{
+				Port: "8089",
+			}
 		}
 		runServer(&udd, c)
 		return
