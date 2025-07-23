@@ -12,11 +12,7 @@ import (
 
 func main() {
 	udd := urlDefenseDecoder{
-<<<<<<< HEAD
 		udPattern:      regexp.MustCompile(`^https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),
-=======
-		udPattern:      regexp.MustCompile(`^https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/$`),
->>>>>>> 8f69efe0715e38795105f83b21023c869fc31ad0
 		v1Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&k=`),
 		v2Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&[dc]=`),
 		v3Pattern:      regexp.MustCompile(`v3/__(?P<url>.+?)__;(?P<enc_bytes>.*?)!`),
