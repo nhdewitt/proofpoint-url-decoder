@@ -1,3 +1,5 @@
+// Package main provides a CLI tool and optional HTTP server for decoding
+// Proofpoint URL Defense links (versions v1, v2, and v3).
 package main
 
 import (
@@ -10,6 +12,8 @@ import (
 	"github.com/nhdewitt/proofpoint-url-decoder/internal/config"
 )
 
+// main is the entry point for the Proofpoint URL Decoder CLI.
+// It initializes patterns for decoding and parses user input.
 func main() {
 	udd := urlDefenseDecoder{
 		udPattern:      regexp.MustCompile(`^https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),

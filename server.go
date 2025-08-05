@@ -8,13 +8,17 @@ import (
 	"github.com/nhdewitt/proofpoint-url-decoder/internal/config"
 )
 
-// Decoder interface defines a method for decoding URLs.
-// It is used by the APIDecodeHandler to decode URLs from the request.
-// Implementations of this interface should provide the Decode method.
+// Decoder defines an interface for decoding encoded URLs.
+// Implementations should return the decoded URL or an error.
 type Decoder interface {
 	Decode(string) (string, error)
 }
 
+// runServer starts an HTTP server that provides a web interface for decoding
+// Proofpoint URL Defense links.
+//
+// It serves templates from the `templates/` directory and uses the provided
+// Decoder implementation to process input URLs.
 func runServer(d Decoder, c config.Config) {
 	tmpl := template.Must(template.ParseGlob("templates/*.html"))
 

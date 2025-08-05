@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+// urlDefenseDecoder provides methods for decoding Proofpoint URL Defense links.
+// It supports versions v1, v2, and v3 of Proofpoint's URL Defense format.
 type urlDefenseDecoder struct {
 	udPattern      *regexp.Regexp
 	v1Pattern      *regexp.Regexp
@@ -20,6 +22,8 @@ type urlDefenseDecoder struct {
 	v3RunMapping   map[rune]int
 }
 
+// buildV3RunMapping returns a map of characters to integer values used
+// to decode Proofpoint v3 URL run-length encoding.
 func buildV3RunMapping() map[rune]int {
 	runValues := "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
 	runLength := 2
@@ -33,6 +37,19 @@ func buildV3RunMapping() map[rune]int {
 	return v3RunMap
 }
 
+// Decode takes an encoded Proofpoint URL Defense link and returns the decoded URL.
+// It automatically detects the URL Defense version and applies the correct decoding logic.
+//
+// Supported formats: v1, v2, v3.
+//
+// Example:
+//
+//	decoder := urlDefenseDecoder{...} // initialized with regex patterns
+//	result, err := decoder.Decode("https://urldefense.com/v3/__https://example.com__;!!...")
+//	if err != nil {
+//	    log.Fatal(err)
+//	}
+//	fmt.Println(result) // "https://example.com"
 func (d *urlDefenseDecoder) Decode(rewrittenURL string) (string, error) {
 	if parts := d.udPattern.FindStringSubmatch(rewrittenURL); parts != nil {
 		switch parts[1] {
@@ -47,6 +64,7 @@ func (d *urlDefenseDecoder) Decode(rewrittenURL string) (string, error) {
 	return "", errors.New("does not appear to be a URL Defense URL")
 }
 
+// decodeV1 extracts and decodes the original URL from a v1 Proofpoint URL Defense link.
 func (d *urlDefenseDecoder) decodeV1(rewrittenURL string) (string, error) {
 	parts := d.v1Pattern.FindStringSubmatch(rewrittenURL)
 	if parts == nil {
@@ -63,6 +81,7 @@ func (d *urlDefenseDecoder) decodeV1(rewrittenURL string) (string, error) {
 	return decoded, nil
 }
 
+// decodeV2 extracts and decodes the original URL from a v2 Proofpoint URL Defense link.
 func (d *urlDefenseDecoder) decodeV2(rewrittenURL string) (string, error) {
 	parts := d.v2Pattern.FindStringSubmatch(rewrittenURL)
 	if parts == nil {
@@ -85,6 +104,8 @@ func (d *urlDefenseDecoder) decodeV2(rewrittenURL string) (string, error) {
 	return decoded, nil
 }
 
+// decodeV3 extracts and decodes the original URL from a v3 Proofpoint URL Defense link.
+// v3 uses run-length encoding and Base64 tokens that need to be processed.
 func (d *urlDefenseDecoder) decodeV3(rewrittenURL string) (string, error) {
 	parts := d.v3Pattern.FindStringSubmatch(rewrittenURL)
 	if parts == nil {
