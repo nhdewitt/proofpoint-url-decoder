@@ -7,11 +7,23 @@
         <link rel="stylesheet" href="/static/css/mobile.css">
     </head>
     <body>
+        <!-- Dark Mode Toggle -->
+        <div class="theme-switcher">
+            <label>
+                <input type="checkbox" id="themeToggle"> Dark Mode
+            </label>
+        </div>
+
         <div class="m-card">
             {{if .Err}}<div class="m-error">{{.Err}}</div>{{else}}
             <div class="m-output">{{.Output}}</div>{{end}}
         </div>
         <a href="/m" class="m-link">Decode another</a>
+
+        <div id="copyTooltip"></div>
+
+        <script src="/static/js/theme.js"></script>
+        <script src="/static/js/clipboard.js"></script>
     </body>
 </html>
 {{end}}

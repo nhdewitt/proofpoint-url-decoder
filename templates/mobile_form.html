@@ -7,10 +7,19 @@
         <link rel="stylesheet" href="/static/css/mobile.css">
     </head>
     <body>
+        <!-- Dark Mode Toggle -->
+        <div class="theme-switcher">
+            <label>
+                <input type="checkbox" id="themeToggle"> Dark Mode
+            </label>
+        </div>
+
         <form method="POST" action="/m" class="m-form">
             <input type="url" name="input" placeholder="Paste URL" class="m-input" autofocus>
             <button class="m-btn">Decode</button>
         </form>
+
+        <script src="/static/js/theme.js"></script>
     </body>
 </html>
 {{end}}
