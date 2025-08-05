@@ -8,14 +8,31 @@
 	<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+     <div class="theme-switcher">
+        <label>
+            <input type="checkbox" id="themeToggle"> Dark Mode
+        </label>
+     </div>
+
 	<div class="card container">
 		<h1 class="heading">Proofpoint URL Decoder</h1>
+
+        <!-- Results rendered here -->
+         <ul id="results" class="results-list"></ul>
+
 		<form method="POST" action="/decode" class="decode-form">
 			<label for="input" class="label">Enter one or more encoded URLs (one per line):</label>
 			<textarea id="input" name="input" class="textarea" placeholder="Paste encoded URLs here..."></textarea>
 			<button type="submit" class="btn btn-secondary">Decode</button>
 		</form>
 	</div>
+
+    <div id="copyTooltip"></div>
+
+    <script src="/static/js/json-api-request.js"></script>
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/clipboard.js"></script>
 </body>
 </html>
 {{end}}

@@ -1,0 +1,16 @@
+{{define "mobile_form"}}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Proofpoint URL Decoder</title>
+        <link rel="stylesheet" href="/static/css/mobile.css">
+    </head>
+    <body>
+        <form method="POST" action="/m" class="m-form">
+            <input type="url" name="input" placeholder="Paste URL" class="m-input" autofocus>
+            <button class="m-btn">Decode</button>
+        </form>
+    </body>
+</html>
+{{end}}

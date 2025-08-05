@@ -1,0 +1,50 @@
+body {
+    margin:0;
+    font:16px/1.4 system-ui;
+    background:#f5f5f5
+}
+
+.m-form {
+    display:flex;
+    gap:.5rem;
+    padding:1rem;
+    background:#fff;
+}
+
+.m-input {
+    flex:1;
+    padding:.6rem;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.m-btn {
+    padding:.6rem 1rem;
+    border:0;
+    border-radius:6px;
+    background:#2a4d69;
+    color:#fff;
+}
+
+.m-card {
+    margin:1rem;
+    background:#fff;
+    padding:1rem;
+    border-radius:8px;
+    word-break:break-all;
+}
+
+.m-output {
+    font-family:monospace;
+}
+
+.m-error {
+    color:#b00020;
+}
+
+.m-link {
+    display:block;
+    margin:1rem;
+    color:#2a4d69;
+    text-align:center;
+}

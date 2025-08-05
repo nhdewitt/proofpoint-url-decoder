@@ -1,0 +1,17 @@
+{{define "mobile_result"}}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Result</title>
+        <link rel="stylesheet" href="/static/css/mobile.css">
+    </head>
+    <body>
+        <div class="m-card">
+            {{if .Err}}<div class="m-error">{{.Err}}</div>{{else}}
+            <div class="m-output">{{.Output}}</div>{{end}}
+        </div>
+        <a href="/m" class="m-link">Decode another</a>
+    </body>
+</html>
+{{end}}

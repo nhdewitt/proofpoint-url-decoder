@@ -7,15 +7,12 @@ import (
 	"regexp"
 
 	"github.com/akamensky/argparse"
-)
-
-const (
-	port = "8089"
+	"github.com/nhdewitt/proofpoint-url-decoder/internal/config"
 )
 
 func main() {
 	udd := urlDefenseDecoder{
-		udPattern:      regexp.MustCompile(`https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),
+		udPattern:      regexp.MustCompile(`^https://urldefense(?:\.proofpoint)?\.com/(v[0-9])/`),
 		v1Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&k=`),
 		v2Pattern:      regexp.MustCompile(`u=(?P<url>.+?)&[dc]=`),
 		v3Pattern:      regexp.MustCompile(`v3/__(?P<url>.+?)__;(?P<enc_bytes>.*?)!`),
@@ -45,7 +42,13 @@ func main() {
 	}
 
 	if *serverMode {
-		runServer(&udd)
+		c, err := config.LoadConfig("config.json")
+		if err != nil {
+			c = config.Config{
+				Port: "8089",
+			}
+		}
+		runServer(&udd, c)
 		return
 	}
 
