@@ -59,6 +59,7 @@ Decode a single URL:
 ```
 
 Output:
+
 ```
 https://example.com/
 ```
@@ -149,6 +150,7 @@ curl -X POST http://localhost:8089/api/decode \
 ```
 
 Response:
+
 ```json
 {
   "results": ["https://example.com/", "https://example.org"],
@@ -183,13 +185,16 @@ If no config file is found, it defaults to port 8089.
 ## Supported URL Formats
 
 ### v1 Format
+
 URLs matching `/v1/u=<url-encoded>&k=...`
 
 ### v2 Format  
+
 URLs matching `/v2/u=<modified‑base64>&[d|c]=...`
 (uses `- → %`, `_ → /`)
 
 ### v3 Format
+
 URLs matching `/v3/__<url>__;...!`
 with embedded Base64‑URL‑encoded token bytes
 
@@ -204,6 +209,7 @@ docker run -d --name proofpoint-decoder --restart=unless-stopped -p 8089:8089 pr
 ```
 
 The `--restart=unless-stopped` policy will:
+
 - Restart the container if it crashes
 - Restart the container when the system reboots
 - Not restart if you manually stop it with `docker stop`

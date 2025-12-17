@@ -1,283 +1,240 @@
-/* Mobile CSS - Matching khaki theme */
-body {
-    margin: 0;
-    font: 16px/1.4 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    background: #f5f1e8;
-    color: #2d2a24;
+:root {
+  /* Modern Palette (Matches Desktop) */
+  --bg-body: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-text: #ffffff;
+  
+  --border: #e5e7eb;
+  --ring: rgba(79, 70, 229, 0.3);
+  
+  --input-bg: #ffffff;
+  
+  --success-bg: #ecfdf5;
+  --success-text: #065f46;
+  --success-border: #a7f3d0;
+  
+  --error-bg: #fef2f2;
+  --error-text: #b91c1c;
+  --error-border: #fecaca;
+  
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Dark mode for body */
 body.dark {
-    background: #0f172a;
-    color: #f1f5f9;
+  /* Dark Mode Overrides */
+  --bg-body: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f3f4f6;
+  --text-muted: #94a3b8;
+  
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  
+  --border: #334155;
+  --ring: rgba(99, 102, 241, 0.4);
+  
+  --input-bg: #0f172a;
+  
+  --success-bg: #064e3b;
+  --success-text: #6ee7b7;
+  --success-border: #065f46;
+  
+  --error-bg: #450a0a;
+  --error-text: #fca5a5;
+  --error-border: #7f1d1d;
+  
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 }
 
-.m-form {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem;
-    background: #faf7f0;
-    border: 1px solid #d4c5a9;
-    border-radius: 12px;
-    margin: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(45, 42, 36, 0.15);
-}
-
-.dark .m-form {
-    background: #1e293b;
-    border-color: #334155;
-}
-
-.m-input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 2px solid #d4c5a9;
-    border-radius: 8px;
-    background: #f8f5ed;
-    color: #2d2a24;
-    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
-    font-size: 14px;
-    transition: border-color 0.2s ease;
-}
-
-.m-input:focus {
-    border-color: #4f46e5;
-    outline: none;
-    background: #fdfcf8;
-}
-
-.dark .m-input {
-    background: #0f172a;
-    color: #f1f5f9;
-    border-color: #334155;
-}
-
-.dark .m-input:focus {
-    background: #1e293b;
-    border-color: #a855f7;
-}
-
-.m-btn {
-    padding: 0.75rem 1.25rem;
-    border: 0;
-    border-radius: 8px;
-    background: #4f46e5;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.m-btn:hover {
-    background: #4338ca;
-}
-
-.m-card {
-    margin: 1rem;
-    background: #faf7f0;
-    padding: 1.25rem;
-    border-radius: 12px;
-    border: 1px solid #d4c5a9;
-    word-break: break-all;
-    box-shadow: 0 4px 6px -1px rgba(45, 42, 36, 0.15);
-}
-
-.dark .m-card {
-    background: #1e293b;
-    border-color: #334155;
-}
-
-.m-output {
-    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
-    background: #f0f9f0;
-    color: #16a34a;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #bbf7d0;
-    margin-top: 0.75rem;
-}
-
-.dark .m-output {
-    background: #052e16;
-    color: #86efac;
-    border-color: #166534;
-}
-
-.m-error {
-    color: #dc2626;
-    background: #fdf2f2;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #fecaca;
-    margin-top: 0.75rem;
-    font-weight: 500;
-}
-
-.dark .m-error {
-    color: #fca5a5;
-    background: #450a0a;
-    border-color: #991b1b;
-}
-
-.m-link {
-    display: block;
-    margin: 1rem;
-    color: #4f46e5;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.75rem;
-    background: #f8f5ed;
-    border: 1px solid #d4c5a9;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
-}
-
-.m-link:hover {
-    background: #f0ede3;
-    color: #4338ca;
-}
-
-.dark .m-link {
-    color: #a855f7;
-    background: #0f172a;
-    border-color: #334155;
-}
-
-.dark .m-link:hover {
-    background: #1e293b;
-    color: #c084fc;
-}
-
-/* Mobile theme toggle */
-.theme-switcher {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 100;
-}
-
-/* Add top margin to body to account for fixed toggle */
+/* Base */
 body {
-    margin: 0;
-    padding-top: 60px; /* Space for the toggle */
-    font: 16px/1.4 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    background: #f5f1e8;
-    color: #2d2a24;
+  margin: 0;
+  padding: 80px 1rem 2rem 1rem; /* Top padding clears the toggle */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+
+/* Theme Toggle (Top Right) */
+.theme-switcher {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  background: var(--bg-card);
+  padding: 8px 12px;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
 
 .theme-switcher label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #2d2a24;
-    cursor: pointer;
-    user-select: none;
-}
-
-.dark .theme-switcher label {
-    color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
 }
 
 .theme-switcher input[type="checkbox"] {
-    position: relative;
-    width: 46px;
-    height: 24px;
-    background: #d4c5a9;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    appearance: none;
-    outline: none;
-    order: -1;
-}
-
-.theme-switcher input[type="checkbox"]:checked {
-    background: #4f46e5;
-}
-
-.theme-switcher input[type="checkbox"]::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.theme-switcher input[type="checkbox"]:checked::before {
-    transform: translateX(22px);
+  appearance: none;
+  width: 40px;
+  height: 22px;
+  background: var(--border);
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.3s;
+  cursor: pointer;
 }
 
 .theme-switcher input[type="checkbox"]::after {
-    content: '☀️';
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 12px;
-    transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.theme-switcher input[type="checkbox"]:checked {
+  background: var(--primary);
 }
 
 .theme-switcher input[type="checkbox"]:checked::after {
-    content: '🌙';
-    left: auto;
-    right: 5px;
-    opacity: 0.8;
+  transform: translateX(18px);
 }
 
-.dark .theme-switcher input[type="checkbox"] {
-    background: #374151;
+/* Mobile Form Card */
+.m-form {
+  display: flex;
+  flex-direction: column; /* Stack input and button on mobile */
+  gap: 1rem;
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
 
-.dark .theme-switcher input[type="checkbox"]:checked {
-    background: #4f46e5;
+.m-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif; /* Cleaner input font */
+  font-size: 16px; /* PREVENTS IOS ZOOM */
+  background: var(--bg-body);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s;
 }
 
-.dark .theme-switcher input[type="checkbox"]::before {
-    background: #f1f5f9;
+.m-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--ring);
 }
 
-/* Copy tooltip for mobile */
+.m-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: var(--primary-text);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.m-btn:active {
+  transform: scale(0.98);
+}
+
+/* Result Card */
+.m-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden; /* Contains the pre block */
+  margin-bottom: 1.5rem;
+}
+
+.m-output {
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--success-bg);
+  color: var(--success-text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  word-break: break-all;
+  white-space: pre-wrap;
+  border-bottom: 4px solid var(--success-border);
+  position: relative; /* For the 'tap to copy' text if needed later */
+}
+
+/* Error State */
+.m-error {
+  padding: 1.5rem;
+  background: var(--error-bg);
+  color: var(--error-text);
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--error-border);
+}
+
+/* Decode Another Link */
+.m-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.m-link:active {
+  background: var(--border);
+}
+
+/* Tooltip (Toast style) */
 #copyTooltip {
-    position: fixed;
-    background: #4f46e5;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0;
-    transform: translate(-50%, -100%) translateY(-8px);
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
+  position: fixed;
+  bottom: 30px; /* Floating at bottom for mobile */
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
 }
 
-#copyTooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 4px solid transparent;
-    border-top-color: #4f46e5;
-}
-
-.dark #copyTooltip {
-    background: #1e293b;
-    border: 1px solid #334155;
-    color: #f1f5f9;
-}
-
-.dark #copyTooltip::after {
-    border-top-color: #1e293b;
+#copyTooltip.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

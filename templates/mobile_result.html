@@ -1,29 +1,62 @@
 {{define "mobile_result"}}
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Result</title>
-        <link rel="stylesheet" href="/static/css/mobile.css">
-    </head>
-    <body>
-        <!-- Dark Mode Toggle -->
-        <div class="theme-switcher">
-            <label>
-                <input type="checkbox" id="themeToggle"> Dark Mode
-            </label>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Result</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/mobile.css">
+</head>
+<body>
 
-        <div class="m-card">
-            {{if .Err}}<div class="m-error">{{.Err}}</div>{{else}}
-            <div class="m-output">{{.Output}}</div>{{end}}
-        </div>
-        <a href="/m" class="m-link">Decode another</a>
+    <div class="theme-switcher">
+        <label>
+            <input type="checkbox" id="themeToggle">
+        </label>
+    </div>
 
-        <div id="copyTooltip"></div>
+    <div class="m-card">
+        {{if .Err}}
+            <div class="m-error">{{.Err}}</div>
+        {{else}}
+            <pre class="m-output output">{{.Output}}</pre>
+        {{end}}
+    </div>
 
-        <script src="/static/js/theme.js"></script>
-        <script src="/static/js/clipboard.js"></script>
-    </body>
+    <a href="/m" class="m-link">Decode Another</a>
+
+    <div id="copyTooltip">Copied to Clipboard!</div>
+
+    <script src="/static/js/theme.js"></script>
+    
+    <script>
+    // Inline script or update clipboard.js to handle the .show class
+    document.addEventListener('DOMContentLoaded', () => {
+        const tooltip = document.getElementById('copyTooltip');
+        document.querySelectorAll('.output').forEach(el => {
+            el.onclick = async () => {
+                const text = el.textContent.trim();
+                try {
+                    await navigator.clipboard.writeText(text);
+                    // Show Toast
+                    tooltip.classList.add('show');
+                    tooltip.style.opacity = '1'; // Fallback
+                    setTimeout(() => { 
+                        tooltip.classList.remove('show'); 
+                        tooltip.style.opacity = '0';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy', err);
+                }
+            };
+        });
+    });
+    </script>
+</body>
 </html>
 {{end}}

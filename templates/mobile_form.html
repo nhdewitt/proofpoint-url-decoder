@@ -1,25 +1,32 @@
 {{define "mobile_form"}}
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Proofpoint URL Decoder</title>
-        <link rel="stylesheet" href="/static/css/mobile.css">
-    </head>
-    <body>
-        <!-- Dark Mode Toggle -->
-        <div class="theme-switcher">
-            <label>
-                <input type="checkbox" id="themeToggle"> Dark Mode
-            </label>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Decoder</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/mobile.css">
+</head>
+<body>
+    
+    <div class="theme-switcher">
+        <label>
+            <input type="checkbox" id="themeToggle">
+        </label>
+    </div>
 
-        <form method="POST" action="/m" class="m-form">
-            <input type="url" name="input" placeholder="Paste URL" class="m-input" autofocus>
-            <button class="m-btn">Decode</button>
-        </form>
+    <form method="POST" action="/m" class="m-form">
+        <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-main);">URL Decoder</div>
+        <input type="url" name="input" placeholder="Paste Proofpoint URL..." class="m-input" autofocus autocomplete="off">
+        <button class="m-btn">Decode</button>
+    </form>
 
-        <script src="/static/js/theme.js"></script>
-    </body>
+    <script src="/static/js/theme.js"></script>
+</body>
 </html>
 {{end}}

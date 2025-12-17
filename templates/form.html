@@ -3,32 +3,41 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Proofpoint URL Decoder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
+
      <div class="theme-switcher">
         <label>
-            <input type="checkbox" id="themeToggle"> Dark Mode
+            <input type="checkbox" id="themeToggle">
+            <span class="toggle-label">Dark Mode</span>
         </label>
      </div>
 
-	<div class="card container">
-		<h1 class="heading">Proofpoint URL Decoder</h1>
+	<div class="container">
+        <div class="card">
+		    <h1 class="heading">Proofpoint URL Decoder</h1>
 
-        <!-- Results rendered here -->
-         <ul id="results" class="results-list"></ul>
+            <ul id="results" class="results-list"></ul>
 
-		<form method="POST" action="/decode" class="decode-form">
-			<label for="input" class="label">Enter one or more encoded URLs (one per line):</label>
-			<textarea id="input" name="input" class="textarea" placeholder="Paste encoded URLs here..."></textarea>
-			<button type="submit" class="btn btn-secondary">Decode</button>
-		</form>
+            <form method="POST" action="/decode" class="decode-form">
+                <div class="form-group">
+                    <label for="input" class="label">Encoded URLs</label>
+                    <textarea id="input" name="input" class="textarea" placeholder="https://urldefense.proofpoint.com/v2/url?..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Decode URLs</button>
+            </form>
+        </div>
 	</div>
 
-    <div id="copyTooltip"></div>
+    <div id="copyTooltip">Copied!</div>
 
     <script src="/static/js/json-api-request.js"></script>
     <script src="/static/js/theme.js"></script>
