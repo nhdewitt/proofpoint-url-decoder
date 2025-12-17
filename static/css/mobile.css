@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* Modern Palette (Matches Desktop) */
   --bg-body: #f3f4f6;
@@ -136,8 +140,8 @@ body {
 }
 
 .m-input {
-  flex: 1;
-  width: 0;
+  flex: 1 1 auto;
+  min-width: 50px;
   padding: 0 16px;
   height: 48px;
   font-family: 'Inter', sans-serif; /* Cleaner input font */
