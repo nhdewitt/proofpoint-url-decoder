@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/static/css/mobile.css">
 </head>
@@ -22,8 +22,11 @@
 
     <form method="POST" action="/m" class="m-form">
         <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-main);">URL Decoder</div>
-        <input type="url" name="input" placeholder="Paste Proofpoint URL..." class="m-input" autofocus autocomplete="off">
-        <button class="m-btn">Decode</button>
+        
+        <div class="m-input-group">
+            <input type="url" name="input" placeholder="Paste URL..." class="m-input" autofocus autocomplete="off">
+            <button class="m-btn">Decode</button>
+        </div>
     </form>
 
     <script src="/static/js/theme.js"></script>

@@ -119,21 +119,27 @@ body {
 
 /* Mobile Form Card */
 .m-form {
-  display: flex;
-  flex-direction: row; /* Stack input and button on mobile */
-  gap: 1rem;
   background: var(--bg-card);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 16px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.m-input-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
 }
 
 .m-input {
   flex: 1;
   width: 0;
-  padding: 12px 16px;
+  padding: 0 16px;
+  height: 48px;
   font-family: 'Inter', sans-serif; /* Cleaner input font */
   font-size: 16px; /* PREVENTS IOS ZOOM */
   background: var(--bg-body);
@@ -142,7 +148,6 @@ body {
   color: var(--text-main);
   outline: none;
   transition: all 0.2s;
-  height: 48px;
 }
 
 .m-input:focus {
@@ -151,21 +156,17 @@ body {
 }
 
 .m-btn {
-  flex: 0 0 auto;
-  width: auto;
-  padding: 0 1.5rem;
   height: 48px;
+  padding: 0 1.25rem;
   background: var(--primary);
   color: var(--primary-text);
   border: none;
   border-radius: 10px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .m-btn:active {
