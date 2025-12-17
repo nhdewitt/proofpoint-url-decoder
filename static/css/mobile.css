@@ -120,17 +120,19 @@ body {
 /* Mobile Form Card */
 .m-form {
   display: flex;
-  flex-direction: column; /* Stack input and button on mobile */
+  flex-direction: row; /* Stack input and button on mobile */
   gap: 1rem;
   background: var(--bg-card);
   padding: 1.5rem;
   border-radius: 16px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
+  align-items: center;
 }
 
 .m-input {
-  width: 100%;
+  flex: 1;
+  width: 0;
   padding: 12px 16px;
   font-family: 'Inter', sans-serif; /* Cleaner input font */
   font-size: 16px; /* PREVENTS IOS ZOOM */
@@ -140,6 +142,7 @@ body {
   color: var(--text-main);
   outline: none;
   transition: all 0.2s;
+  height: 48px;
 }
 
 .m-input:focus {
@@ -148,16 +151,21 @@ body {
 }
 
 .m-btn {
-  width: 100%;
-  padding: 12px;
+  flex: 0 0 auto;
+  width: auto;
+  padding: 0 1.5rem;
+  height: 48px;
   background: var(--primary);
   color: var(--primary-text);
   border: none;
   border-radius: 10px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.1s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .m-btn:active {
