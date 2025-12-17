@@ -12,7 +12,7 @@ A robust Go utility and HTTP server designed to decode URLs rewritten by Proofpo
 
 | **Desktop View** | **Mobile View** |
 |:---:|:---:|
-| ![desktop image](https://github.com/user-attachments/assets/0d406d0d-be4c-47dc-b717-6e1fac60dede) | ![mobile screenshot](https://github.com/user-attachments/assets/c6247def-207e-47f5-930f-521650a23ca8) |
+| ![desktop image](https://github.com/user-attachments/assets/0d406d0d-be4c-47dc-b717-6e1fac60dede) | ![mobile screenshot](https://github.com/user-attachments/assets/647027d1-3a5a-4871-a3de-f2e6c9b7fe2f) |
 | *Clean, multi-line decoding with Dark Mode* | *Touch-optimized interface* |
 
 ---
